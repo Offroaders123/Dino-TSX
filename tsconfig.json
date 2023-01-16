@@ -1,8 +1,13 @@
 {
   "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
     "module": "ESNext",
+    "moduleResolution": "Node",
     "target": "ESNext",
     "jsx": "react",
+    "jsxFactory": "jsx",
+    "jsxFragmentFactory": "jsx.Fragment",
     "strict": true
   }
 }
