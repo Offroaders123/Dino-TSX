@@ -1,4 +1,4 @@
-import jsx from "texsaur";
+import { createElement } from "./index.js";
 
 const stylesheet = new CSSStyleSheet();
 const styles = fetch(new URL("../src/style.css",import.meta.url));
@@ -37,7 +37,7 @@ export class TextEditor extends HTMLElement {
     <textarea
       part="textarea"
       wrap="off"
-      spellcheck="false"
+      spellcheck={false}
       autocomplete="off"
       autocapitalize="none"
       autocorrect="off"

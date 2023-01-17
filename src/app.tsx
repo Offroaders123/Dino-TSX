@@ -1,4 +1,4 @@
-import jsx from "texsaur";
+import { createElement } from "./index.js";
 import "./text-editor.js";
 
 const mySVG = <svg>
