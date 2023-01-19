@@ -8,8 +8,6 @@ declare global {
     
     type IntrinsicElementsTagNameMap = {
       [K in keyof HTMLElementTagNameMap]: Partial<HTMLElementTagNameMap[K]>;
-    } & {
-      [K in keyof SVGElementTagNameMap]: Partial<SVGElementTagNameMap[K]>;
     };
   }
 }
@@ -25,32 +23,3 @@ export function createElement<K extends keyof HTMLElementTagNameMap>(tagName: K,
 
   return element;
 }
-
-export class Epic extends HTMLElement {
-  get fart() {
-    return "lol" as const;
-  }
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    "x-epic": Epic;
-  }
-}
-
-const myDiv = <div></div> as HTMLDivElement;
-
-// @ts-expect-error
-myDiv.Not_a_property;
-
-const myWebComponent = <x-epic></x-epic> as Epic;
-
-console.log(myWebComponent.fart);
-
-const mySVG = <svg>
-  <symbol id="myIcon">
-    <rect />
-  </symbol>
-</svg> as SVGSVGElement;
-
-export {};

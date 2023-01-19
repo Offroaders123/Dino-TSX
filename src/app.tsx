@@ -1,11 +1,13 @@
 import { createElement } from "./index.js";
-import "./text-editor.js";
+import type Epic from "./epic.js";
 
-const mySVG = <svg>
-  <use href=""/>
-</svg> as SVGElement;
+const myDiv = <div></div> as HTMLDivElement;
 
-document.body.append(
-  <text-editor class="custom-css-class"/>,
-  mySVG
-);
+// @ts-expect-error
+myDiv.Not_a_property;
+
+const myWebComponent = <x-epic></x-epic> as Epic;
+
+console.log(myWebComponent.fart);
+
+document.body.append(myWebComponent);
