@@ -6,8 +6,9 @@
     "moduleResolution": "Node",
     "target": "ESNext",
     "jsx": "react",
-    "jsxFactory": "createElement",
-    "jsxFragmentFactory": "Fragment",
-    "strict": true
+    "jsxFactory": "JSX.createElement",
+    "jsxFragmentFactory": "JSX.Fragment",
+    "strict": true,
+    "importsNotUsedAsValues": "preserve"
   }
 }

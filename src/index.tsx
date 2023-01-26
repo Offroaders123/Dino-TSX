@@ -5,14 +5,14 @@ declare global {
     type Fragment = Node[];
 
     interface IntrinsicElements extends IntrinsicElementsTagNameMap {}
-    
+
     type IntrinsicElementsTagNameMap = {
       [K in keyof HTMLElementTagNameMap]: Partial<HTMLElementTagNameMap[K]>;
-    };
+    }
   }
 }
 
-export function createElement<K extends keyof HTMLElementTagNameMap>(tagName: K, attributes?: Partial<HTMLElementTagNameMap[K]> | null, ...children: Node[]): HTMLElementTagNameMap[K] {
+export function createElement<K extends keyof JSX.IntrinsicElements>(tagName: K, attributes?: JSX.IntrinsicElementsTagNameMap[K] | null, ...children: Node[]): JSX.IntrinsicElementsTagNameMap[K] {
   const element = document.createElement(tagName);
 
   if (attributes !== null && attributes !== undefined){

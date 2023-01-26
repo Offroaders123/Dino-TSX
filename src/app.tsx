@@ -1,5 +1,5 @@
-import { createElement } from "./index.js";
-import type Epic from "./epic.js";
+import * as JSX from "./index.js";
+import Epic from "./epic.js";
 
 const myDiv = <div></div> as HTMLDivElement;
 
