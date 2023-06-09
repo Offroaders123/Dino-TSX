@@ -1,7 +1,7 @@
 import * as JSX from "./index.js";
 
 export class Epic extends HTMLElement {
-  readonly shadowRoot = this.attachShadow({ mode: "open" });
+  override readonly shadowRoot = this.attachShadow({ mode: "open" });
 
   constructor() {
     super();

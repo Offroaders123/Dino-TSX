@@ -3,12 +3,13 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "NodeNext",
     "target": "ESNext",
     "jsx": "react",
     "jsxFactory": "JSX.createElement",
     "jsxFragmentFactory": "JSX.Fragment",
     "strict": true,
+    "noImplicitOverride": true,
     "importsNotUsedAsValues": "preserve"
   }
 }
