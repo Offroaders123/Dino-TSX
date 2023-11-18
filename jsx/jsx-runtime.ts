@@ -1,14 +1,12 @@
-declare global {
-  namespace JSX {
-    type Children = Element | Element[];
-    type Element = globalThis.Element;
-    type Fragment = Node[];
+export namespace JSX {
+  export type Children = Element | Element[];
+  export type Element = globalThis.Element;
+  export type Fragment = Node[];
 
-    interface IntrinsicElements extends IntrinsicElementsTagNameMap {}
+  export interface IntrinsicElements extends IntrinsicElementsTagNameMap {}
 
-    type IntrinsicElementsTagNameMap = {
-      [K in keyof HTMLElementTagNameMap]: Partial<HTMLElementTagNameMap[K]>;
-    }
+  export type IntrinsicElementsTagNameMap = {
+    [K in keyof HTMLElementTagNameMap]: Partial<HTMLElementTagNameMap[K]>;
   }
 }
 

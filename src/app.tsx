@@ -1,4 +1,4 @@
-import * as JSX from "./index.js";
+import * as JSX from "../jsx/jsx-runtime.js";
 import "./epic.js";
 
 import type Epic from "./epic.js";

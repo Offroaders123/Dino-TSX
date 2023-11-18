@@ -1,11 +1,15 @@
 {
   "name": "dino-tsx",
+  "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc -w"
+    "build": "tsc; vite",
+    "dev": "vite",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "@types/node": "^20.9.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
   }
 }
