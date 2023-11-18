@@ -1,6 +1,6 @@
 import * as JSX from "./index.js";
 
-export class Epic extends HTMLElement {
+export default class Epic extends HTMLElement {
   override readonly shadowRoot = this.attachShadow({ mode: "open" });
 
   constructor() {
@@ -15,12 +15,10 @@ export class Epic extends HTMLElement {
   }
 }
 
-window.customElements.define("x-epic",Epic);
+customElements.define("x-epic",Epic);
 
 declare global {
   interface HTMLElementTagNameMap {
     "x-epic": Epic;
   }
 }
-
-export default Epic;

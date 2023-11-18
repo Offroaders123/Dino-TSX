@@ -2,14 +2,18 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
-    "module": "ESNext",
-    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
     "target": "ESNext",
+    "isolatedModules": true,
     "jsx": "react",
     "jsxFactory": "JSX.createElement",
     "jsxFragmentFactory": "JSX.Fragment",
     "strict": true,
     "noImplicitOverride": true,
-    "importsNotUsedAsValues": "preserve"
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "allowUnreachableCode": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   }
 }
