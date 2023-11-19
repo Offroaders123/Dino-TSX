@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
     "module": "NodeNext",
     "target": "ESNext",
     "isolatedModules": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "jsx",
-    "noEmit": true,
+    "declaration": true,
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

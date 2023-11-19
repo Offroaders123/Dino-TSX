@@ -3,9 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc; vite",
+    "build": "tsc; vite build",
     "dev": "vite",
     "preview": "vite preview"
+  },
+  "dependencies": {
+    "jsx": "file:jsx"
   },
   "devDependencies": {
     "@types/node": "^20.9.2",

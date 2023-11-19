@@ -1,5 +1,3 @@
-import * as JSX from "../jsx/jsx-runtime.js";
-
 export default class Epic extends HTMLElement {
   override readonly shadowRoot = this.attachShadow({ mode: "open" });
 
