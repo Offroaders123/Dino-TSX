@@ -10,8 +10,9 @@ export namespace JSX {
   }
 }
 
-export function createElement<K extends keyof JSX.IntrinsicElements>(tagName: K, attributes?: JSX.IntrinsicElementsTagNameMap[K] | null, ...children: Node[]): JSX.IntrinsicElementsTagNameMap[K] {
+export function jsx<K extends keyof JSX.IntrinsicElements>(tagName: K, attributes?: JSX.IntrinsicElementsTagNameMap[K] | null, ...children: Node[]): JSX.IntrinsicElementsTagNameMap[K] {
   const element = document.createElement(tagName);
+  console.log(children);
 
   if (attributes !== null && attributes !== undefined){
     Object.assign(element,attributes);

@@ -3,8 +3,10 @@ export default class Epic extends HTMLElement {
 
   constructor() {
     super();
+    const demo = <div>This is an epic component, don't you think?</div>;
+    console.log(demo);
     this.shadowRoot.append(
-      <div>This is an epic component, don't you think?</div>
+      demo
     );
   }
 
