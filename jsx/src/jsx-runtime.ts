@@ -10,15 +10,17 @@ export namespace JSX {
   }
 }
 
-export function jsx<K extends keyof JSX.IntrinsicElements>(tagName: K, attributes?: JSX.IntrinsicElementsTagNameMap[K] | null, ...children: Node[]): JSX.IntrinsicElementsTagNameMap[K] {
+export function jsx<K extends keyof JSX.IntrinsicElements>(tagName: K, attributes?: JSX.IntrinsicElementsTagNameMap[K] & { children?: Node[]; } | null): JSX.IntrinsicElementsTagNameMap[K] {
   const element = document.createElement(tagName);
-  console.log(children);
+  const children: Node[] = attributes?.children ?? [] as Node[];
+  delete attributes?.children;
+  console.log(tagName,attributes,children);
 
   if (attributes !== null && attributes !== undefined){
     Object.assign(element,attributes);
   }
 
-  element.append(...children);
+  element.append(...(Array.isArray(children) ? children : [children]));
 
   return element;
 }
