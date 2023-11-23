@@ -1,17 +1,41 @@
 // ({
-//   Object: Object.keys(Object.prototype),
-//   EventTarget: Object.keys(EventTarget.prototype),
-//   Node: Object.keys(Node.prototype),
-//   Element: Object.keys(Element.prototype),
-//   HTMLElement: Object.keys(HTMLElement.prototype)
-// })
+//   Object: Object.entries(Object.getOwnPropertyDescriptors(Object.prototype))
+//     .filter(([_,value]) => value.set === undefined || value.value === undefined)
+//     .map(([key]) => key),
+//   EventTarget: Object.entries(Object.getOwnPropertyDescriptors(EventTarget.prototype))
+//     .filter(([_,value]) => value.set === undefined || value.value === undefined)
+//     .map(([key]) => key),
+//   Node: Object.entries(Object.getOwnPropertyDescriptors(Node.prototype))
+//     .filter(([_,value]) => value.set === undefined || value.value === undefined)
+//     .map(([key]) => key),
+//   Element: Object.entries(Object.getOwnPropertyDescriptors(Element.prototype))
+//     .filter(([_,value]) => value.set === undefined || value.value === undefined)
+//     .map(([key]) => key),
+//   HTMLElement: Object.entries(Object.getOwnPropertyDescriptors(HTMLElement.prototype))
+//     .filter(([_,value]) => value.set === undefined || value.value === undefined)
+//     .map(([key]) => key)
+// });
 
 ({
-  Object: [],
+  Object: [
+    "constructor",
+    "__defineGetter__",
+    "__defineSetter__",
+    "hasOwnProperty",
+    "__lookupGetter__",
+    "__lookupSetter__",
+    "isPrototypeOf",
+    "propertyIsEnumerable",
+    "toString",
+    "valueOf",
+    "__proto__",
+    "toLocaleString"
+  ],
   EventTarget: [
     "addEventListener",
     "dispatchEvent",
-    "removeEventListener"
+    "removeEventListener",
+    "constructor"
   ],
   Node: [
     "nodeType",
@@ -60,7 +84,8 @@
     "lookupPrefix",
     "normalize",
     "removeChild",
-    "replaceChild"
+    "replaceChild",
+    "constructor"
   ],
   Element: [
     "namespaceURI",
@@ -195,7 +220,8 @@
     "webkitRequestFullScreen",
     "webkitRequestFullscreen",
     "checkVisibility",
-    "getAnimations"
+    "getAnimations",
+    "constructor"
   ],
   HTMLElement: [
     "title",
@@ -331,6 +357,7 @@
     "inert",
     "oncontentvisibilityautostatechange",
     "onscrollend",
+    "constructor",
     "onbeforematch"
   ]
-})
+});
