@@ -337,7 +337,7 @@ export namespace JSX {
 
 export function jsx<K extends keyof JSX.IntrinsicElements>(tagName: K, attributes?: JSX.IntrinsicElementsTagNameMap[K] & { children?: Node[]; } | null): JSX.IntrinsicElementsTagNameMap[K] {
   // @ts-expect-error
-  const element: Element | DocumentFragment = tagName === DocumentFragment ? new tagName() : document.createElement(tagName);
+  const element: Element | DocumentFragment = tagName === DocumentFragment ? new tagName() : typeof tagName === "function" ? tagName() : document.createElement(tagName);
   const children: Node[] = attributes?.children ?? [] as Node[];
   delete attributes?.children;
   console.log(tagName,attributes,children);

@@ -22,3 +22,14 @@ const fragment = (
   </>
 ) as unknown as JSX.Fragment;
 console.log(fragment);
+
+function Functionality(){
+  return (
+    <button style="background: red;">Heya!</button>
+  );
+}
+
+const functionality = <Functionality/>;
+console.log(functionality);
+
+document.body.append(functionality);
