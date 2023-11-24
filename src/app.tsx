@@ -1,4 +1,5 @@
 import "./epic.js";
+import DataAPIView from "./DataAPIView.js";
 
 import type { JSX } from "jsx/jsx-runtime";
 import type Epic from "./epic.js";
@@ -14,7 +15,7 @@ console.log(myWebComponent.fart);
 
 document.body.append(myWebComponent);
 
-const fragment = (
+const fragment = await (
   <>
     <div class="soy you" part="gg">
       <button class="hi" style="fill: red"/>
@@ -33,3 +34,5 @@ const functionality = await <Functionality/>;
 console.log(functionality);
 
 document.body.append(functionality);
+
+document.body.append(await <DataAPIView/>);
