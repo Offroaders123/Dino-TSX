@@ -3,12 +3,12 @@ import "./epic.js";
 import type { JSX } from "jsx/jsx-runtime";
 import type Epic from "./epic.js";
 
-const myDiv = <div></div> as HTMLDivElement;
+const myDiv = await <div></div> as HTMLDivElement;
 
 // @ts-expect-error
 myDiv.Not_a_property;
 
-const myWebComponent = <x-epic onclick={console.log}></x-epic> as Epic;
+const myWebComponent = await <x-epic onclick={console.log}></x-epic> as Epic;
 
 console.log(myWebComponent.fart);
 
@@ -23,13 +23,13 @@ const fragment = (
 ) as unknown as JSX.Fragment;
 console.log(fragment);
 
-function Functionality(){
+async function Functionality(){
   return (
     <button style="background: red;">Heya!</button>
   );
 }
 
-const functionality = <Functionality/>;
+const functionality = await <Functionality/>;
 console.log(functionality);
 
 document.body.append(functionality);
