@@ -1,5 +1,6 @@
 import "./epic.js";
 
+import type { JSX } from "jsx/jsx-runtime";
 import type Epic from "./epic.js";
 
 const myDiv = <div></div> as HTMLDivElement;
@@ -13,10 +14,11 @@ console.log(myWebComponent.fart);
 
 document.body.append(myWebComponent);
 
-console.log(
+const fragment = (
   <>
     <div class="soy you" part="gg">
       <button class="hi" style="fill: red"/>
     </div>
   </>
-);
+) as unknown as JSX.Fragment;
+console.log(fragment);

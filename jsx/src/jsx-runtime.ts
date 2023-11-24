@@ -1,7 +1,7 @@
 export namespace JSX {
   export type Children = Element | Element[];
   export type Element = globalThis.Element;
-  export type Fragment = Node[];
+  export type Fragment = DocumentFragment;
 
   export interface IntrinsicElements extends IntrinsicElementsTagNameMap {}
 
