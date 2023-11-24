@@ -1,6 +1,6 @@
 export namespace JSX {
   export type Children = Element | Element[];
-  export type Element = Promise<globalThis.Element>;
+  export type Element = globalThis.Element;
   export type Fragment = DocumentFragment;
 
   export interface IntrinsicElements extends IntrinsicElementsTagNameMap {}
@@ -335,10 +335,10 @@ export namespace JSX {
   ;
 }
 
-export async function jsx<K extends keyof JSX.IntrinsicElements>(tagName: K, attributes?: JSX.IntrinsicElementsTagNameMap[K] & { children?: Node[]; } | null): Promise<JSX.IntrinsicElementsTagNameMap[K]> {
+export function jsx<K extends keyof JSX.IntrinsicElements>(tagName: K, attributes?: JSX.IntrinsicElementsTagNameMap[K] & { children?: Node[]; } | null): JSX.IntrinsicElementsTagNameMap[K] {
   // @ts-expect-error
-  const element: Element | DocumentFragment = tagName === DocumentFragment ? new tagName() : typeof tagName === "function" ? await tagName() : document.createElement(tagName);
-  const children: Node[] = await attributes?.children ?? [] as Node[];
+  const element: Element | DocumentFragment = tagName === DocumentFragment ? new tagName() : typeof tagName === "function" ? tagName() : document.createElement(tagName);
+  const children: Node[] = attributes?.children ?? [] as Node[];
   delete attributes?.children;
   console.log(tagName,attributes,children);
 

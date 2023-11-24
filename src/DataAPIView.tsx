@@ -10,19 +10,19 @@ const apiData: Record<string, Record<string, string | boolean>> = {
   }
 };
 const apiResponse = new Response(new Blob([JSON.stringify(apiData)],{ type: "text/json" }).stream());
+const data: typeof apiData = await apiResponse.json();
 
-export default async function DataAPIView(): Promise<Element> {
-  const data: typeof apiData = await apiResponse.json();
+export default function DataAPIView(): Element {
   return (
     <>
-      {await <h1 style="font-family: cursive;">Data API View Demo</h1>}
-      {await <ol>
-        {await Promise.all(Object.entries(data).map(async ([key,value]) => <li>{key}: {
-          await <ul>
-            {await Promise.all(Object.entries(value).map(async ([key,value]) => <li>{key}: {typeof value === "boolean" ? await <code style="padding: 2px 4px; background: gray;">{value}</code> : value}</li>))}
+      <h1 style="font-family: cursive;">Data API View Demo</h1>
+      <ol>
+        {Object.entries(data).map(([key,value]) => <li>{key}: {
+          <ul>
+            {Object.entries(value).map(([key,value]) => <li>{key}: {typeof value === "boolean" ? <code style="padding: 2px 4px; background: gray;">{value}</code> : value}</li>)}
           </ul>
-        }</li>))}
-      </ol>}
+        }</li>)}
+      </ol>
     </>
   );
 }
