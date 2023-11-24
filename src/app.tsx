@@ -1,5 +1,5 @@
 import "./epic.js";
-import DataAPIView from "./DataAPIView.js";
+import DataAPIView, { apiResponse } from "./DataAPIView.js";
 
 import type { JSX } from "jsx/jsx-runtime";
 import type Epic from "./epic.js";
@@ -18,11 +18,13 @@ document.body.append(myWebComponent);
 const fragment = (
   <>
     <div class="soy you" part="gg">
-      <button class="hi" style="fill: red"/>
+      <button class="hi" style="fill: red">Soy you, gg, hi!</button>
     </div>
   </>
 ) as unknown as JSX.Fragment;
 // console.log(fragment);
+
+document.body.append(fragment);
 
 function Functionality(){
   return (
@@ -35,4 +37,4 @@ const functionality = <Functionality/>;
 
 document.body.append(functionality);
 
-document.body.append(<DataAPIView/>);
+document.body.append(<DataAPIView data={await apiResponse.json()}/>);
