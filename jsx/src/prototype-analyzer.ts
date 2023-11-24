@@ -1,6 +1,10 @@
 const prototypes = getPrototypes(File);
 console.log(prototypes);
 
+const immutableProperties = getImmutableProperties(prototypes);
+// immutableProperties.forEach(descriptor => console.log(descriptor));
+console.log(immutableProperties);
+
 interface Constructor extends Function {
   prototype: Prototype | null;
 }
@@ -25,4 +29,14 @@ function getPrototypes(constructor: Constructor): Constructor[] {
   }
 
   return constructors;
+}
+
+function getImmutableProperties(constructors: Constructor[]): Record<string, string[]> {
+  const descriptors: Record<string, string[]> = Object.fromEntries(constructors.map(constructor => [
+    constructor.name,
+    Object.entries(Object.getOwnPropertyDescriptors(constructor.prototype))
+      .filter(([_,value]) => value.set === undefined || value.value === undefined)
+      .map(([key]) => key)
+  ]));
+  return descriptors;
 }
