@@ -11,7 +11,7 @@ myDiv.Not_a_property;
 
 const myWebComponent = <x-epic onclick={console.log}></x-epic> as Epic;
 
-console.log(myWebComponent.fart);
+// console.log(myWebComponent.fart);
 
 document.body.append(myWebComponent);
 
@@ -22,7 +22,7 @@ const fragment = (
     </div>
   </>
 ) as unknown as JSX.Fragment;
-console.log(fragment);
+// console.log(fragment);
 
 function Functionality(){
   return (
@@ -31,7 +31,7 @@ function Functionality(){
 }
 
 const functionality = <Functionality/>;
-console.log(functionality);
+// console.log(functionality);
 
 document.body.append(functionality);
 

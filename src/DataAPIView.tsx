@@ -17,10 +17,15 @@ export default function DataAPIView(): Element {
     <>
       <h1 style="font-family: cursive;">Data API View Demo</h1>
       <ol>
-        {Object.entries(data).map(([key,value]) => <li>{key}: {
-          <ul>
-            {Object.entries(value).map(([key,value]) => <li>{key}: {typeof value === "boolean" ? <code style="padding: 2px 4px; background: gray;">{value}</code> : value}</li>)}
-          </ul>
+        {Object.entries(data).map(([key,value]) =>
+          <li>{key}: {
+            <ul>
+              {Object.entries(value).map(([key,value]) =>
+                <li>{key}: {typeof value === "boolean"
+                  ? <code style="padding: 2px 4px; background: gray;">{value}</code>
+                  : value
+                }</li>)}
+            </ul>
         }</li>)}
       </ol>
     </>
